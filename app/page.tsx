@@ -10,11 +10,11 @@ import Services from "./_components/services";
 
 export default function Home() {
   return (
-    <div className="">
-      <div className="container mx-auto mt-28">
+    <div className="container mx-auto">
+      <div className=" mt-28">
         <HeroSection />
       </div>
-      <div className=" container mx-auto">
+      <div className=" ">
         <LogoUs />
       </div>
 
@@ -23,11 +23,11 @@ export default function Home() {
       <AboutUs />
 
       <Events />
-      <div className="container mx-auto mt-28">
+      <div className=" mt-28">
         <CallToActionManager />
       </div>
 
-      <div className="container mx-auto mt-28 mb-20">
+      <div className=" mt-28 mb-20">
         <h2 className="text-4xl font-bold text-center text-primary">
           جدیدترین خبر ها
         </h2>
