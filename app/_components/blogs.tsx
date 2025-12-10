@@ -35,18 +35,20 @@ const Blogs = () => {
     },
   ];
   return (
-    <div dir="rtl" className="grid grid-cols-4 gap-4 pt-8">
-      {blogs.map((blog, idx) => (
-        <div key={idx}>
-          <CardBlog
-            category={blog.category}
-            image={blog.image}
-            title={blog.title}
-            description={blog.description}
-            date={blog.date}
-          />
-        </div>
-      ))}
+    <div dir="rtl" className="container mx-auto px-4 pt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {blogs.map((blog, idx) => (
+          <div key={idx} className="w-full">
+            <CardBlog
+              category={blog.category}
+              image={blog.image}
+              title={blog.title}
+              description={blog.description}
+              date={blog.date}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
