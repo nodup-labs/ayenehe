@@ -66,7 +66,10 @@ const Services = () => {
       <p className="text-center text-gray-500 text-lg pt-2">
         خلاقیت و تجربه را ترکیب می‌کنیم تا ایده‌هایتان به واقعیت برسد.
       </p>
-      <div dir="rtl" className="grid grid-cols-4 grid-rows-2 gap-4 pt-8">
+      <div
+        dir="rtl"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8"
+      >
         {cards.map((card, idx) => (
           <div key={idx}>
             <Card

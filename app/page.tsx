@@ -17,16 +17,13 @@ export default function Home() {
       <div className=" ">
         <LogoUs />
       </div>
-
       <Services />
 
       <AboutUs />
-
       <Events />
       <div className=" mt-28">
         <CallToActionManager />
       </div>
-
       <div className=" mt-28 mb-20">
         <h2 className="text-4xl font-bold text-center text-primary">
           جدیدترین خبر ها

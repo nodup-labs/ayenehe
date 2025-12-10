@@ -48,14 +48,14 @@ export default function Navbar() {
               مجله کسب‌وکار
             </Link>
             <Link
-              href="/contact"
-              className={isActive("/contact") ? "font-bold" : ""}
+              href="/contact-us"
+              className={isActive("/contact-us") ? "font-bold" : ""}
             >
               تماس
             </Link>
             <Link
-              href="/aboutus"
-              className={isActive("/aboutus") ? "font-bold" : ""}
+              href="/about-us"
+              className={isActive("/about-us") ? "font-bold" : ""}
             >
               درباره ما
             </Link>
@@ -115,10 +115,10 @@ export default function Navbar() {
           <Link href="/blog" onClick={() => setMobileOpen(false)}>
             مجله کسب‌وکار
           </Link>
-          <Link href="/contact" onClick={() => setMobileOpen(false)}>
+          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>
             تماس
           </Link>
-          <Link href="/aboutus" onClick={() => setMobileOpen(false)}>
+          <Link href="/about-us" onClick={() => setMobileOpen(false)}>
             درباره ما
           </Link>
 
