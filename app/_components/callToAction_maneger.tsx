@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,10 +9,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 interface FormData {
   name: string;
@@ -25,14 +25,14 @@ interface FormData {
 export default function CallToActionManager() {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    company: '',
-    problem: '',
-    phone: '',
+    name: "",
+    email: "",
+    company: "",
+    problem: "",
+    phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -49,32 +49,32 @@ export default function CallToActionManager() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/manager-problems', {
-        method: 'POST',
+      const response = await fetch("/api/manager-problems", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        setSubmitMessage('پیام شما با موفقیت ارسال شد');
+        setSubmitMessage("پیام شما با موفقیت ارسال شد");
         setFormData({
-          name: '',
-          email: '',
-          company: '',
-          problem: '',
-          phone: '',
+          name: "",
+          email: "",
+          company: "",
+          problem: "",
+          phone: "",
         });
         setTimeout(() => {
           setOpen(false);
-          setSubmitMessage('');
+          setSubmitMessage("");
         }, 2000);
       } else {
-        setSubmitMessage('خطا در ارسال پیام. لطفا دوباره تلاش کنید');
+        setSubmitMessage("خطا در ارسال پیام. لطفا دوباره تلاش کنید");
       }
     } catch (error) {
-      setSubmitMessage('خطا در ارسال پیام. لطفا دوباره تلاش کنید');
+      setSubmitMessage("خطا در ارسال پیام. لطفا دوباره تلاش کنید");
     } finally {
       setIsSubmitting(false);
     }
@@ -84,32 +84,32 @@ export default function CallToActionManager() {
     setOpen(newOpen);
     if (!newOpen) {
       setFormData({
-        name: '',
-        email: '',
-        company: '',
-        problem: '',
-        phone: '',
+        name: "",
+        email: "",
+        company: "",
+        problem: "",
+        phone: "",
       });
-      setSubmitMessage('');
+      setSubmitMessage("");
     }
   };
 
   return (
-    <section  className="py-24 bg-secondary rounded ">
-      <div className="container mx-auto px-4 text-center">
+    <section className="py-24 bg-secondary rounded ">
+      <div className="px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           مسائل خود را با ما به اشتراک بگذارید
         </h2>
-        <p dir='rtl' className="text-lg  text-white mb-8">
-          آیا مدیر هستید و مشکلات خاصی داشتید؟ ما اینجایم تا شنوایم. پیام خود را برای ما ارسال کنید
-          و ما به زودی با شما تماس خواهیم گرفت.
+        <p dir="rtl" className="text-lg  text-white mb-8">
+          آیا مدیر هستید و مشکلات خاصی داشتید؟ ما اینجایم تا شنوایم. پیام خود را
+          برای ما ارسال کنید و ما به زودی با شما تماس خواهیم گرفت.
         </p>
 
-        <Dialog  open={open} onOpenChange={handleOpenChange}>
+        <Dialog open={open} onOpenChange={handleOpenChange}>
           <DialogTrigger asChild>
-           <Button variant={"default"}> مسئله خود رابیان کنید</Button>
+            <Button variant={"default"}> مسئله خود رابیان کنید</Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[800px]" >
+          <DialogContent className="sm:max-w-[800px]">
             <DialogHeader>
               <DialogTitle>درخواست رسیدگی به مسائل شما</DialogTitle>
               <DialogDescription>
@@ -117,7 +117,7 @@ export default function CallToActionManager() {
               </DialogDescription>
             </DialogHeader>
 
-            <form onSubmit={handleSubmit} dir='rtl' className="space-y-4">
+            <form onSubmit={handleSubmit} dir="rtl" className="space-y-4">
               {/* Name Field */}
               <div className="space-y-2">
                 <Label htmlFor="name">نام و نام خانوادگی</Label>
@@ -187,9 +187,9 @@ export default function CallToActionManager() {
               {submitMessage && (
                 <div
                   className={`p-3 rounded-lg text-center text-sm ${
-                    submitMessage.includes('موفقیت')
-                      ? 'bg-green-100 text-green-800'
-                      : 'bg-red-100 text-red-800'
+                    submitMessage.includes("موفقیت")
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
                   }`}
                 >
                   {submitMessage}
@@ -203,7 +203,7 @@ export default function CallToActionManager() {
                   disabled={isSubmitting}
                   className="flex-1"
                 >
-                  {isSubmitting ? 'در حال ارسال...' : 'ارسال'}
+                  {isSubmitting ? "در حال ارسال..." : "ارسال"}
                 </Button>
                 <Button
                   type="button"

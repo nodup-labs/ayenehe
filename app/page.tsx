@@ -10,7 +10,7 @@ import Services from "./_components/services";
 
 export default function Home() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4 sm:px-6">
       <div className=" mt-28">
         <HeroSection />
       </div>

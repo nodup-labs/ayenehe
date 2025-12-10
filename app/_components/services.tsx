@@ -59,7 +59,7 @@ const Services = () => {
     },
   ];
   return (
-    <div id="Services" className=" pt-20 container mx-auto">
+    <div id="Services" className=" pt-20">
       <h2 className="text-4xl font-bold text-center text-primary">
         خدمات خانه خلاق آیینه
       </h2>
@@ -68,7 +68,7 @@ const Services = () => {
       </p>
       <div
         dir="rtl"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 "
       >
         {cards.map((card, idx) => (
           <div key={idx}>

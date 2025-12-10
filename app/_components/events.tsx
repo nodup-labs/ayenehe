@@ -63,7 +63,7 @@ const Events = () => {
     },
   ];
   return (
-    <div id="Events" className="pt-40 container mx-auto mb-20">
+    <div id="Events" className="pt-40 mb-20">
       <h2 className="text-4xl font-bold text-center text-primary">رویدادها</h2>
       <p className="text-center text-gray-500 text-lg pt-2">
         خلاقیت و تجربه را ترکیب می‌کنیم تا ایده‌هایتان به واقعیت برسد.
@@ -72,7 +72,11 @@ const Events = () => {
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={16}
-          slidesPerView={4}
+          slidesPerView={2}
+          breakpoints={{
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
           autoplay={{ delay: 5000 }}
           className="w-full"
         >
