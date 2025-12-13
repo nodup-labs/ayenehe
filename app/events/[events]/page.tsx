@@ -1,22 +1,20 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Calendar,
-  Clock,
-  MapPin,
-  Tag,
-  DollarSign,
-  Users,
-  ChevronLeft,
-  Share2,
-  Heart,
   CheckCircle,
-} from 'lucide-react';
-import { useState } from 'react';
+  ChevronLeft,
+  Clock,
+  Heart,
+  MapPin,
+  Share2,
+  Users,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface EventDetails {
   id: string;
@@ -24,7 +22,7 @@ interface EventDetails {
   description: string;
   longDescription: string;
   image: string;
-  price: number | 'free';
+  price: number | "free";
   location: string;
   category: string;
   date: string;
@@ -42,10 +40,10 @@ interface EventDetails {
 
 // نمونه داده‌های تفصیلی رویدادها
 const eventsDetailsData: Record<string, EventDetails> = {
-  '1': {
-    id: '1',
-    title: 'سمینار دیجیتال مارکتینگ',
-    description: 'سمینار جامع درباره تکنیک‌های جدید دیجیتال مارکتینگ',
+  "1": {
+    id: "1",
+    title: "سمینار دیجیتال مارکتینگ",
+    description: "سمینار جامع درباره تکنیک‌های جدید دیجیتال مارکتینگ",
     longDescription: `این سمینار فشرده شامل بررسی تمامی جنبه‌های دیجیتال مارکتینگ می‌باشد. در این سمینار شما با:
     
 - استراتژی‌های بازاریابی دیجیتال آشنا می‌شوید
@@ -55,40 +53,40 @@ const eventsDetailsData: Record<string, EventDetails> = {
 - کیس استادی‌های واقعی از شرکت‌های موفق
 
 این سمینار ایده‌آل برای کارآفرینان، متخصصین بازاریابی و هر کسی که می‌خواهد کسب و کارش را آنلاین توسعه دهد.`,
-    image: '/image/cover-3.webp',
+    image: "/image/cover-3.webp",
     price: 250000,
-    location: 'تهران - سالن آریا',
-    category: 'بیزنس',
-    date: '۱۴۰۴/۰۱/۲۵',
-    time: '۹:۳۰ - ۱۲:۳۰',
+    location: "تهران - سالن آریا",
+    category: "بیزنس",
+    date: "۱۴۰۴/۰۱/۲۵",
+    time: "۹:۳۰ - ۱۲:۳۰",
     capacity: 100,
     registered: 75,
-    speaker: 'علی محمدی - متخصص دیجیتال مارکتینگ',
+    speaker: "علی محمدی - متخصص دیجیتال مارکتینگ",
     highlights: [
-      'آموزش توسط بهترین متخصصان',
-      'سرتیفیکت معتبر پس از اتمام',
-      'بسته یادداشت‌های جامع',
-      'دسترسی به ویدیوهای آموزشی',
-      'پشتیبانی مادام‌العمر',
+      "آموزش توسط بهترین متخصصان",
+      "سرتیفیکت معتبر پس از اتمام",
+      "بسته یادداشت‌های جامع",
+      "دسترسی به ویدیوهای آموزشی",
+      "پشتیبانی مادام‌العمر",
     ],
     schedule: [
-      { time: '۹:۳۰', activity: 'ثبت‌نام و قهوه خوری' },
-      { time: '۱۰:۰۰', activity: 'بنیان‌های دیجیتال مارکتینگ' },
-      { time: '۱۰:۳۰', activity: 'SEO و بهینه‌سازی موتور جستجو' },
-      { time: '۱۱:۳۰', activity: 'ویژگی‌های تبلیغات شبکه‌های اجتماعی' },
-      { time: '۱۲:۱۵', activity: 'پرسش و پاسخ' },
-      { time: '۱۲:۳۰', activity: 'پایان سمینار' },
+      { time: "۹:۳۰", activity: "ثبت‌نام و قهوه خوری" },
+      { time: "۱۰:۰۰", activity: "بنیان‌های دیجیتال مارکتینگ" },
+      { time: "۱۰:۳۰", activity: "SEO و بهینه‌سازی موتور جستجو" },
+      { time: "۱۱:۳۰", activity: "ویژگی‌های تبلیغات شبکه‌های اجتماعی" },
+      { time: "۱۲:۱۵", activity: "پرسش و پاسخ" },
+      { time: "۱۲:۳۰", activity: "پایان سمینار" },
     ],
     requirements: [
-      'دانش پایه‌ای از اینترنت و شبکه‌های اجتماعی',
-      'لپ‌تاپ یا رایانه‌ای برای تمرین عملی',
-      'یادداشت‌برداری ابزارها',
+      "دانش پایه‌ای از اینترنت و شبکه‌های اجتماعی",
+      "لپ‌تاپ یا رایانه‌ای برای تمرین عملی",
+      "یادداشت‌برداری ابزارها",
     ],
   },
-  '2': {
-    id: '2',
-    title: 'کارگاه برنامه‌نویسی Python',
-    description: 'آموزش عملی زبان برنامه‌نویسی Python',
+  "2": {
+    id: "2",
+    title: "کارگاه برنامه‌نویسی Python",
+    description: "آموزش عملی زبان برنامه‌نویسی Python",
     longDescription: `کارگاه Python این یک دوره جامع برای یادگیری یکی از محبوب‌ترین زبان‌های برنامه‌نویسی جهان است.
 
 محتوای کارگاه:
@@ -100,40 +98,40 @@ const eventsDetailsData: Record<string, EventDetails> = {
 - پروژه‌های عملی و واقعی
 
 این کارگاه برای مبتدیانی که هیچ تجربه‌ای ندارند و همچنین برای افرادی که می‌خواهند مهارت‌های خود را بهتر کنند مناسب است.`,
-    image: '/image/cover-3.webp',
+    image: "/image/cover-3.webp",
     price: 150000,
-    location: 'تهران - ساختمان دریا',
-    category: 'آموزش فنی',
-    date: '۱۴۰۴/۰۱/۳۰',
-    time: '۱۴:۰۰ - ۱۷:۰۰',
+    location: "تهران - ساختمان دریا",
+    category: "آموزش فنی",
+    date: "۱۴۰۴/۰۱/۳۰",
+    time: "۱۴:۰۰ - ۱۷:۰۰",
     capacity: 50,
     registered: 45,
-    speaker: 'محمد حسن‌پور - برنامه‌نویس ارشد',
+    speaker: "محمد حسن‌پور - برنامه‌نویس ارشد",
     highlights: [
-      'آموزش عملی و تمرین زیاد',
-      'سرتیفیکت رسمی',
-      'دسترسی دائم به منابع کارگاه',
-      'کوئری‌های رایگان پس از کارگاه',
-      'بسته‌ای شامل کد‌های آماده',
+      "آموزش عملی و تمرین زیاد",
+      "سرتیفیکت رسمی",
+      "دسترسی دائم به منابع کارگاه",
+      "کوئری‌های رایگان پس از کارگاه",
+      "بسته‌ای شامل کد‌های آماده",
     ],
     schedule: [
-      { time: '۱۴:۰۰', activity: 'ورود و معرفی' },
-      { time: '۱۴:۱۵', activity: 'مبانی Python و محیط کاری' },
-      { time: '۱۵:۰۰', activity: 'تمرین عملی اول' },
-      { time: '۱۵:۳۰', activity: 'استراتژی‌های قدرتمند' },
-      { time: '۱۶:۳۰', activity: 'پروژه نهایی' },
-      { time: '۱۷:۰۰', activity: 'پایان کارگاه' },
+      { time: "۱۴:۰۰", activity: "ورود و معرفی" },
+      { time: "۱۴:۱۵", activity: "مبانی Python و محیط کاری" },
+      { time: "۱۵:۰۰", activity: "تمرین عملی اول" },
+      { time: "۱۵:۳۰", activity: "استراتژی‌های قدرتمند" },
+      { time: "۱۶:۳۰", activity: "پروژه نهایی" },
+      { time: "۱۷:۰۰", activity: "پایان کارگاه" },
     ],
     requirements: [
-      'لپ‌تاپ با Python نصب شده',
-      'ویرایشگر کد (VS Code توصیه می‌شود)',
-      'دانش پایه‌ای از ریاضی',
+      "لپ‌تاپ با Python نصب شده",
+      "ویرایشگر کد (VS Code توصیه می‌شود)",
+      "دانش پایه‌ای از ریاضی",
     ],
   },
-  '3': {
-    id: '3',
-    title: 'نیتورکینگ کارآفرینان',
-    description: 'فرصتی برای شبکه‌سازی بین کارآفرینان',
+  "3": {
+    id: "3",
+    title: "نیتورکینگ کارآفرینان",
+    description: "فرصتی برای شبکه‌سازی بین کارآفرینان",
     longDescription: `این رویداد نیتورکینگ فرصتی عالی برای کارآفرینان، سرمایه‌گذاران و متخصصین کسب و کار است.
 
 شما در این رویداد خواهید:
@@ -145,34 +143,34 @@ const eventsDetailsData: Record<string, EventDetails> = {
 - دریافت نسخه‌های تجارتی
 
 این رویداد بسیار مناسب برای کسانی است که دنبال تامین‌کننده سرمایه یا شراکت هستند.`,
-    image: '/image/cover-3.webp',
-    price: 'free',
-    location: 'تهران - هتل استقلال',
-    category: 'شبکه‌سازی',
-    date: '۱۴۰۴/۰۲/۱۰',
-    time: '۱۸:۰۰ - ۲۰:۰۰',
+    image: "/image/cover-3.webp",
+    price: "free",
+    location: "تهران - هتل استقلال",
+    category: "شبکه‌سازی",
+    date: "۱۴۰۴/۰۲/۱۰",
+    time: "۱۸:۰۰ - ۲۰:۰۰",
     capacity: 200,
     registered: 120,
-    speaker: 'تیم سازمان‌دهنده',
+    speaker: "تیم سازمان‌دهنده",
     highlights: [
-      'شبکه‌سازی غیرفروش‌گرایانه',
-      'ملاقات با متخصصین موفق',
-      'مشروبات و غذایی رایگان',
-      'محیط راحت و دوستانه',
-      'فرصت‌های سرمایه‌گذاری',
+      "شبکه‌سازی غیرفروش‌گرایانه",
+      "ملاقات با متخصصین موفق",
+      "مشروبات و غذایی رایگان",
+      "محیط راحت و دوستانه",
+      "فرصت‌های سرمایه‌گذاری",
     ],
     schedule: [
-      { time: '۱۸:۰۰', activity: 'پذیرایی و قهوه' },
-      { time: '۱۸:۳۰', activity: 'سخنرانی کوتاه توسط سرمایه‌گذار' },
-      { time: '۱۹:۰۰', activity: 'شبکه‌سازی آزاد' },
-      { time: '۱۹:۳۰', activity: 'معرفی استارتاپ‌های نوپا' },
-      { time: '۲۰:۰۰', activity: 'پایان رویداد' },
+      { time: "۱۸:۰۰", activity: "پذیرایی و قهوه" },
+      { time: "۱۸:۳۰", activity: "سخنرانی کوتاه توسط سرمایه‌گذار" },
+      { time: "۱۹:۰۰", activity: "شبکه‌سازی آزاد" },
+      { time: "۱۹:۳۰", activity: "معرفی استارتاپ‌های نوپا" },
+      { time: "۲۰:۰۰", activity: "پایان رویداد" },
     ],
   },
-  '4': {
-    id: '4',
-    title: 'کنفرانس فناوری و نوآوری',
-    description: 'بررسی آخرین تکنولوژی‌ها و ایده‌های نو',
+  "4": {
+    id: "4",
+    title: "کنفرانس فناوری و نوآوری",
+    description: "بررسی آخرین تکنولوژی‌ها و ایده‌های نو",
     longDescription: `یک کنفرانس جامع برای بررسی آخرین روند‌های فناوری و نوآوری در دنیا.
 
 سرفصل‌های اصلی:
@@ -184,36 +182,36 @@ const eventsDetailsData: Record<string, EventDetails> = {
 - فناوری‌های نوظهور
 
 برنامه‌ریزی برای دو روز شامل سخنرانی‌های فنی، نمایش‌های عملی و جلسات مناظره است.`,
-    image: '/image/cover-3.webp',
+    image: "/image/cover-3.webp",
     price: 350000,
-    location: 'تهران - برج میلاد',
-    category: 'فناوری',
-    date: '۱۴۰۴/۰۲/۲۰',
-    time: '۱۰:۰۰ - ۱۶:۰۰',
+    location: "تهران - برج میلاد",
+    category: "فناوری",
+    date: "۱۴۰۴/۰۲/۲۰",
+    time: "۱۰:۰۰ - ۱۶:۰۰",
     capacity: 300,
     registered: 250,
-    speaker: 'سخنرانان مختلف',
+    speaker: "سخنرانان مختلف",
     highlights: [
-      'سخنرانان بین‌المللی',
-      'نمایش‌های زنده فناوری',
-      'بوثهای شرکت‌های بزرگ',
-      'سرتیفیکت معتبر',
-      'ناهار و پذیرایی رایگان',
+      "سخنرانان بین‌المللی",
+      "نمایش‌های زنده فناوری",
+      "بوثهای شرکت‌های بزرگ",
+      "سرتیفیکت معتبر",
+      "ناهار و پذیرایی رایگان",
     ],
     schedule: [
-      { time: '۱۰:۰۰', activity: 'ثبت‌نام و ورود' },
-      { time: '۱۰:۳۰', activity: 'سخنرانی کلیدی: آینده فناوری' },
-      { time: '۱۱:۳۰', activity: 'جلسه‌های موازی (بخش اول)' },
-      { time: '۱۲:۳۰', activity: 'ناهار' },
-      { time: '۱۳:۳۰', activity: 'جلسه‌های موازی (بخش دوم)' },
-      { time: '۱۴:۳۰', activity: 'نمایش‌های فناوری' },
-      { time: '۱۶:۰۰', activity: 'پایان کنفرانس' },
+      { time: "۱۰:۰۰", activity: "ثبت‌نام و ورود" },
+      { time: "۱۰:۳۰", activity: "سخنرانی کلیدی: آینده فناوری" },
+      { time: "۱۱:۳۰", activity: "جلسه‌های موازی (بخش اول)" },
+      { time: "۱۲:۳۰", activity: "ناهار" },
+      { time: "۱۳:۳۰", activity: "جلسه‌های موازی (بخش دوم)" },
+      { time: "۱۴:۳۰", activity: "نمایش‌های فناوری" },
+      { time: "۱۶:۰۰", activity: "پایان کنفرانس" },
     ],
   },
-  '5': {
-    id: '5',
-    title: 'ورکشاپ طراحی UI/UX',
-    description: 'آموزش اصول و روش‌های طراحی',
+  "5": {
+    id: "5",
+    title: "ورکشاپ طراحی UI/UX",
+    description: "آموزش اصول و روش‌های طراحی",
     longDescription: `یک ورکشاپ عملی و جامع برای یادگیری اصول طراحی رابط کاربری (UI) و تجربه کاربر (UX).
 
 مواد تدریس:
@@ -226,34 +224,34 @@ const eventsDetailsData: Record<string, EventDetails> = {
 - تست‌کردن و بهبود
 
 شرکت‌کنندگان پروژه‌های عملی انجام خواهند داد.`,
-    image: '/image/cover-3.webp',
+    image: "/image/cover-3.webp",
     price: 200000,
-    location: 'تهران - مرکز طراحی',
-    category: 'طراحی',
-    date: '۱۴۰۴/۰۲/۲۵',
-    time: '۱۳:۰۰ - ۱۶:۰۰',
+    location: "تهران - مرکز طراحی",
+    category: "طراحی",
+    date: "۱۴۰۴/۰۲/۲۵",
+    time: "۱۳:۰۰ - ۱۶:۰۰",
     capacity: 60,
     registered: 55,
-    speaker: 'سارا رسولی - طراح UI/UX',
+    speaker: "سارا رسولی - طراح UI/UX",
     highlights: [
-      'استفاده از ابزارهای صنعتی',
-      'پروژه‌های عملی پرتولیو‌ای',
-      'بازخورد شخصی از استاد',
-      'فایل‌های آماده استفاده',
-      'جامعه خودیار طراحان',
+      "استفاده از ابزارهای صنعتی",
+      "پروژه‌های عملی پرتولیو‌ای",
+      "بازخورد شخصی از استاد",
+      "فایل‌های آماده استفاده",
+      "جامعه خودیار طراحان",
     ],
     schedule: [
-      { time: '۱۳:۰۰', activity: 'مقدمه و استرم‌برین' },
-      { time: '۱۳:۳۰', activity: 'اصول طراحی UI/UX' },
-      { time: '۱۴:۳۰', activity: 'تمرین عملی: طراحی وایرفریم' },
-      { time: '۱۵:۳۰', activity: 'نوتشرح پروتوتایپینگ' },
-      { time: '۱۶:۰۰', activity: 'پایان ورکشاپ' },
+      { time: "۱۳:۰۰", activity: "مقدمه و استرم‌برین" },
+      { time: "۱۳:۳۰", activity: "اصول طراحی UI/UX" },
+      { time: "۱۴:۳۰", activity: "تمرین عملی: طراحی وایرفریم" },
+      { time: "۱۵:۳۰", activity: "نوتشرح پروتوتایپینگ" },
+      { time: "۱۶:۰۰", activity: "پایان ورکشاپ" },
     ],
   },
-  '6': {
-    id: '6',
-    title: 'سخنرانی درباره استارتاپ‌های موفق',
-    description: 'یادگیری از تجربیات بنیان‌گذاران',
+  "6": {
+    id: "6",
+    title: "سخنرانی درباره استارتاپ‌های موفق",
+    description: "یادگیری از تجربیات بنیان‌گذاران",
     longDescription: `سخنرانی الهام‌بخش درباره داستان موفقیت استارتاپ‌های معروف و آموزن‌های پیدا شده از آن.
 
 در این سخنرانی:
@@ -265,28 +263,28 @@ const eventsDetailsData: Record<string, EventDetails> = {
 - نکات برای شروع استارتاپ خود
 
 یک فرصت بزرگ برای رویاپردازی و یادگیری از بهترین‌ها!`,
-    image: '/image/cover-3.webp',
-    price: 'free',
-    location: 'آنلاین',
-    category: 'کسب و کار',
-    date: '۱۴۰۴/۰۳/۰۵',
-    time: '۲۰:۰۰ - ۲۱:۳۰',
+    image: "/image/cover-3.webp",
+    price: "free",
+    location: "آنلاین",
+    category: "کسب و کار",
+    date: "۱۴۰۴/۰۳/۰۵",
+    time: "۲۰:۰۰ - ۲۱:۳۰",
     capacity: 500,
     registered: 340,
-    speaker: 'بنیان‌گذاران استارتاپ‌های معروف',
+    speaker: "بنیان‌گذاران استارتاپ‌های معروف",
     highlights: [
-      'سخنرانی رایگان',
-      'جلسه سؤال و پاسخ',
-      'شبکه‌سازی با بنیان‌گذاران',
-      'ضبط و دسترسی بعدی',
-      'منابع و ابزار رایگان',
+      "سخنرانی رایگان",
+      "جلسه سؤال و پاسخ",
+      "شبکه‌سازی با بنیان‌گذاران",
+      "ضبط و دسترسی بعدی",
+      "منابع و ابزار رایگان",
     ],
     schedule: [
-      { time: '۲۰:۰۰', activity: 'ورود و فناوری تست' },
-      { time: '۲۰:۱۰', activity: 'سخنرانی اول' },
-      { time: '۲۰:۴۵', activity: 'سخنرانی دوم' },
-      { time: '۲۱:۱۵', activity: 'جلسه سؤال و پاسخ' },
-      { time: '۲۱:۳۰', activity: 'پایان سخنرانی' },
+      { time: "۲۰:۰۰", activity: "ورود و فناوری تست" },
+      { time: "۲۰:۱۰", activity: "سخنرانی اول" },
+      { time: "۲۰:۴۵", activity: "سخنرانی دوم" },
+      { time: "۲۱:۱۵", activity: "جلسه سؤال و پاسخ" },
+      { time: "۲۱:۳۰", activity: "پایان سخنرانی" },
     ],
   },
 };
@@ -304,8 +302,13 @@ export default function EventDetailsPage() {
     return (
       <div dir="rtl" className="min-h-screen pt-32 pb-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">رویداد یافت نشد</h1>
-          <Link href="/events" className="text-blue-600 hover:text-blue-700 flex items-center justify-center gap-2">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            رویداد یافت نشد
+          </h1>
+          <Link
+            href="/events"
+            className="text-blue-600 hover:text-blue-700 flex items-center justify-center gap-2"
+          >
             <ChevronLeft size={20} />
             بازگشت به لیست رویدادها
           </Link>
@@ -315,7 +318,7 @@ export default function EventDetailsPage() {
   }
 
   const priceDisplay =
-    event.price === 'free' ? 'رایگان' : `${event.price.toLocaleString()} تومان`;
+    event.price === "free" ? "رایگان" : `${event.price.toLocaleString()} تومان`;
   const registrationPercentage = (event.registered / event.capacity) * 100;
   const remainingSpots = event.capacity - event.registered;
 
@@ -363,9 +366,11 @@ export default function EventDetailsPage() {
           <div className="lg:col-span-2">
             {/* توضیحات کامل */}
             <section className="bg-white rounded-xl p-6 shadow-md mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">توضیحات کامل</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                توضیحات کامل
+              </h2>
               <div className="text-gray-700 space-y-3 text-justify leading-8">
-                {event.longDescription.split('\n').map((paragraph, index) => (
+                {event.longDescription.split("\n").map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
@@ -397,7 +402,10 @@ export default function EventDetailsPage() {
               </h2>
               <div className="space-y-4">
                 {event.schedule.map((item, index) => (
-                  <div key={index} className="flex gap-4 pb-4 border-b last:border-b-0">
+                  <div
+                    key={index}
+                    className="flex gap-4 pb-4 border-b last:border-b-0"
+                  >
                     <div className="flex-shrink-0">
                       <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-semibold text-sm">
                         {item.time}
@@ -414,10 +422,15 @@ export default function EventDetailsPage() {
             {/* الزامات */}
             {event.requirements && event.requirements.length > 0 && (
               <section className="bg-blue-50 rounded-xl p-6 shadow-md">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">الزامات</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  الزامات
+                </h2>
                 <ul className="space-y-2">
                   {event.requirements.map((requirement, index) => (
-                    <li key={index} className="flex items-center gap-3 text-gray-700">
+                    <li
+                      key={index}
+                      className="flex items-center gap-3 text-gray-700"
+                    >
                       <span className="w-2 h-2 bg-blue-600 rounded-full" />
                       {requirement}
                     </li>
@@ -434,13 +447,18 @@ export default function EventDetailsPage() {
               {/* قیمت */}
               <div>
                 <p className="text-gray-600 text-sm mb-2">قیمت</p>
-                <p className="text-3xl font-bold text-green-600">{priceDisplay}</p>
+                <p className="text-3xl font-bold text-green-600">
+                  {priceDisplay}
+                </p>
               </div>
 
               {/* تاریخ و ساعت */}
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <Calendar size={20} className="text-blue-600 flex-shrink-0 mt-1" />
+                  <Calendar
+                    size={20}
+                    className="text-blue-600 flex-shrink-0 mt-1"
+                  />
                   <div>
                     <p className="text-gray-600 text-sm">تاریخ</p>
                     <p className="text-gray-900 font-semibold">{event.date}</p>
@@ -448,7 +466,10 @@ export default function EventDetailsPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock size={20} className="text-orange-600 flex-shrink-0 mt-1" />
+                  <Clock
+                    size={20}
+                    className="text-orange-600 flex-shrink-0 mt-1"
+                  />
                   <div>
                     <p className="text-gray-600 text-sm">ساعت</p>
                     <p className="text-gray-900 font-semibold">{event.time}</p>
@@ -456,10 +477,15 @@ export default function EventDetailsPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <MapPin size={20} className="text-red-600 flex-shrink-0 mt-1" />
+                  <MapPin
+                    size={20}
+                    className="text-red-600 flex-shrink-0 mt-1"
+                  />
                   <div>
                     <p className="text-gray-600 text-sm">مکان</p>
-                    <p className="text-gray-900 font-semibold">{event.location}</p>
+                    <p className="text-gray-900 font-semibold">
+                      {event.location}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -496,7 +522,7 @@ export default function EventDetailsPage() {
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-colors"
                   disabled={remainingSpots === 0 && !isRegistered}
                 >
-                  {isRegistered ? 'لغو ثبت‌نام' : 'ثبت‌نام رویداد'}
+                  {isRegistered ? "لغو ثبت‌نام" : "ثبت‌نام رویداد"}
                 </Button>
 
                 <div className="flex gap-2">
@@ -506,7 +532,11 @@ export default function EventDetailsPage() {
                   >
                     <Heart
                       size={20}
-                      className={isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600'}
+                      className={
+                        isFavorite
+                          ? "fill-red-500 text-red-500"
+                          : "text-gray-600"
+                      }
                     />
                   </button>
 
