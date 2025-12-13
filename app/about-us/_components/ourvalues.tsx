@@ -1,4 +1,4 @@
-const OurValues = () => {
+const Ourvalues = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
@@ -55,4 +55,4 @@ const OurValues = () => {
   );
 };
 
-export default OurValues;
+export default Ourvalues;

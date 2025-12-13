@@ -1,7 +1,7 @@
 "use client";
 
 import Ourstory from "./_components/ourstory";
-import OurValues from "./_components/ourValues";
+import Ourvalues from "./_components/ourvalues";
 import Statistics from "./_components/statistics";
 import Team from "./_components/Team";
 
@@ -33,7 +33,7 @@ export default function AboutUsPage() {
       <Statistics />
 
       {/* بخش ارزش‌های ما */}
-      <OurValues />
+      <Ourvalues />
     </main>
   );
 }
