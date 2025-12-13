@@ -1,4 +1,5 @@
 export interface Event {
+  price: number | "free" | undefined;
   id: string;
   category: string;
   image: string;
@@ -12,6 +13,7 @@ export interface Event {
 
 export const events: Event[] = [
   {
+    price: "free",
     id: "1",
     category: "وبینار",
     image: "/image/Herosection.jpg",
@@ -29,6 +31,7 @@ export const events: Event[] = [
 آشنا خواهید شد. متخصصین تجربی‌کار از شرکت‌های بزرگ آن‌لاین حضور دارند.`,
   },
   {
+    price: "free",
     id: "2",
     category: "کارگاه",
     image: "/image/about.jpg",
@@ -48,6 +51,7 @@ export const events: Event[] = [
 حضور در این کارگاه محدود است و فقط برای ۲۰ نفر.`,
   },
   {
+    price: "free",
     id: "3",
     category: "همایش",
     image: "/image/cover-3.webp",
@@ -67,6 +71,7 @@ export const events: Event[] = [
 این است بهترین فرصت برای آشنایی با آخرین فناوری‌های ایران.`,
   },
   {
+    price: "free",
     id: "4",
     category: "دوره آموزشی",
     image: "/image/cube.png",

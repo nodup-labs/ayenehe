@@ -25,8 +25,6 @@ export default function ContactUsPage() {
 
       {/* FAQ Section */}
       <Faq />
-
-      {/* CTA Section */}
     </main>
   );
 }
