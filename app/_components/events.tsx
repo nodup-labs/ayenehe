@@ -72,9 +72,9 @@ const Events = () => {
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={16}
-          slidesPerView={2}
+          slidesPerView={1}
           breakpoints={{
-            768: { slidesPerView: 3 },
+            768: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
           }}
           autoplay={{ delay: 5000 }}

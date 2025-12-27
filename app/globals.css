@@ -45,7 +45,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background:oklch(98.4% 0.003 247.858);
+  --background: oklch(98.4% 0.003 247.858);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -78,7 +78,6 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
-
 @layer base {
   * {
     font-family: "IRANYekanXFaNum", var(--font-IRANYekan), sans-serif;
@@ -87,7 +86,6 @@
     @apply bg-background text-foreground;
   }
 }
-
 
 @font-face {
   font-family: "IRANYekanXFaNum";
@@ -155,4 +153,3 @@
   font-weight: 990;
   font-style: normal;
 }
-
