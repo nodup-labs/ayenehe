@@ -1,3 +1,9 @@
+"use client";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import CardBlog from "./CardBlog";
 
 const Blogs = () => {
@@ -35,10 +41,20 @@ const Blogs = () => {
     },
   ];
   return (
-    <div dir="rtl" className="container mx-auto px-4 pt-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div dir="rtl" className="pt-8">
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={16}
+        slidesPerView={1}
+        breakpoints={{
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 },
+        }}
+        autoplay={{ delay: 5000 }}
+        className="w-full"
+      >
         {blogs.map((blog, idx) => (
-          <div key={idx} className="w-full">
+          <SwiperSlide key={blog.title || idx}>
             <CardBlog
               category={blog.category}
               image={blog.image}
@@ -46,9 +62,9 @@ const Blogs = () => {
               description={blog.description}
               date={blog.date}
             />
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
