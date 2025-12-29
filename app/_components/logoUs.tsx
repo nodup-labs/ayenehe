@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 interface Logo {
   id: number;
@@ -15,63 +15,63 @@ const LogoUs = () => {
   const logos: Logo[] = [
     {
       id: 1,
-      name: 'Company 1',
-      imageSrc: '/image/cube.png',
+      name: "Company 1",
+      imageSrc: "/image/cube.png",
     },
     {
       id: 2,
-      name: 'Company 2',
-      imageSrc: '/image/cube.png',
+      name: "Company 2",
+      imageSrc: "/image/cube.png",
     },
     {
       id: 3,
-      name: 'Company 3',
-      imageSrc: '/image/cube.png',
+      name: "Company 3",
+      imageSrc: "/image/cube.png",
     },
     {
       id: 4,
-      name: 'Company 4',
-      imageSrc: '/image/cube.png',
+      name: "Company 4",
+      imageSrc: "/image/cube.png",
     },
     {
       id: 5,
-      name: 'Company 5',
-      imageSrc: '/image/cube.png',
+      name: "Company 5",
+      imageSrc: "/image/cube.png",
     },
     {
       id: 6,
-      name: 'Company 6',
-      imageSrc: '/image/cube.png',
+      name: "Company 6",
+      imageSrc: "/image/cube.png",
     },
-     {
+    {
       id: 7,
-      name: 'Company 6',
-      imageSrc: '/image/cube.png',
+      name: "Company 6",
+      imageSrc: "/image/cube.png",
     },
-      {
+    {
       id: 8,
-      name: 'Company 6',
-      imageSrc: '/image/cube.png',
+      name: "Company 6",
+      imageSrc: "/image/cube.png",
     },
   ];
 
   const [sliderRef] = useKeenSlider({
     loop: true,
-    renderMode: 'performance',
+    renderMode: "performance",
     drag: true,
     slides: {
       perView: 6,
       spacing: 4,
     },
     breakpoints: {
-      '(max-width: 640px)': {
+      "(max-width: 640px)": {
         slides: { perView: 1, spacing: 4 },
       },
-      '(max-width: 768px)': {
-        slides: { perView: 2, spacing:4 },
+      "(max-width: 768px)": {
+        slides: { perView: 2, spacing: 4 },
       },
-      '(max-width: 1024px)': {
-        slides: { perView: 3, spacing:4 },
+      "(max-width: 1024px)": {
+        slides: { perView: 3, spacing: 4 },
       },
     },
     created(s) {
@@ -88,8 +88,6 @@ const LogoUs = () => {
   return (
     <section className="py-12 md:py-12">
       <div className="">
-    
-
         <div ref={sliderRef} className="keen-slider">
           {logos.map((logo) => (
             <div

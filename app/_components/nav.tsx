@@ -36,7 +36,7 @@ export default function Navbar() {
               href="/business"
               className={isActive("/business") ? "font-bold" : ""}
             >
-              کسب و کار ها
+              کسب و کارها
             </Link>
             <Link
               href="/events"
@@ -45,13 +45,13 @@ export default function Navbar() {
               رویدادها
             </Link>
             <Link href="/blog" className={isActive("/blog") ? "font-bold" : ""}>
-              مجله کسب‌وکار
+              مجله کسب‌ و کار
             </Link>
             <Link
               href="/contact-us"
               className={isActive("/contact-us") ? "font-bold" : ""}
             >
-              تماس
+              تماس با ما
             </Link>
             <Link
               href="/about-us"

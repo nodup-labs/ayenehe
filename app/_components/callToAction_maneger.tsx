@@ -98,11 +98,11 @@ export default function CallToActionManager() {
     <section className="py-24 bg-secondary rounded ">
       <div className="px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          مسائل خود را با ما به اشتراک بگذارید
+          مسائل خود را با کمک ما حل نمایید
         </h2>
         <p dir="rtl" className="text-lg  text-white mb-8">
-          آیا مدیر هستید و مشکلات خاصی داشتید؟ ما اینجایم تا شنوایم. پیام خود را
-          برای ما ارسال کنید و ما به زودی با شما تماس خواهیم گرفت.
+          در صورتی که شما یکی از مدیران ارشد کمیته امداد امام خمینی (ره) هستید
+          میتوانید برای حل مسئله روی کمک ما حساب کنید
         </p>
 
         <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -147,13 +147,13 @@ export default function CallToActionManager() {
 
               {/* Company Field */}
               <div className="space-y-2">
-                <Label htmlFor="company">نام شرکت / سازمان</Label>
+                <Label htmlFor="company">پست سازمانی</Label>
                 <Input
                   id="company"
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
-                  placeholder="نام شرکت خود را وارد کنید"
+                  placeholder="پست خود را با ذکر استان محل خدمت درج نمایید "
                 />
               </div>
 
